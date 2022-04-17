@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "socialnetwork-ea46e": {
+      "hosting": {
+        "labnotes": [
+          "socialnetwork-ea46e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "socialnetwork-ea46e"
+  }
+}
