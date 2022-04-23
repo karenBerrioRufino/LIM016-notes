@@ -1,0 +1,108 @@
+$color-celeste: #B4C6DE;
+$color-naranja: #E77C72;
+$color-verdelimon: #E4F994;
+$color-rosado: #F8879B;
+$color-negro: black;
+.containerRegister{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.fondo{
+  height: 100vh;
+  width: 70vw;
+}
+.boxRegister{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+  height: 100vh;
+  padding-right: 50px;
+}
+.signUp{
+  color: $color-naranja;
+  font-weight: bolder;
+  font-size: 50px;
+  padding: 8px;
+}
+.email,
+.password,
+.username,
+.registrarme{
+  border: 1px solid $color-negro;
+  border-radius: 10px;
+  width: 300px;
+  height: 40px;
+  margin: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.registrarme{
+  border: none !important;
+  background-color: $color-verdelimon;
+  color: $color-naranja;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+.google{
+  background-color: transparent;
+  border: none;
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+  cursor: pointer;
+}
+.google img{
+  width: 35px;
+  height: 35px;
+}
+.signIn{
+  text-decoration: none;
+  color: $color-negro;
+  font-size: 15px;
+  cursor: pointer;
+}
+.eye{
+  display: flex;
+  align-items:center;
+  position: relative;
+  justify-content: center;
+}
+.iconEye{
+  color: $color-negro;
+  position: absolute;
+  right: 15px;
+  margin: 5px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.userEmail{
+  display: flex;
+  align-items:center;
+  position: relative;
+  justify-content: center;
+}
+.user{
+  display: flex;
+  align-items:center;
+  position: relative;
+  justify-content: center;
+}
+.iconUser{
+  color: $color-negro;
+  position: absolute;
+  right: 15px;
+  margin: 5px;
+  margin-top: 8px;
+}
+.emailIcon{
+  color: $color-negro;
+  position: absolute;
+  right: 15px;
+  margin: 5px;
+  margin-top: 8px;
+}
