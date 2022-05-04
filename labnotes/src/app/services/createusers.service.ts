@@ -8,6 +8,7 @@ import firebase from 'firebase/compat/app'
   providedIn: 'root'
 })
 export class CreateusersService {
+  authWithAngularFirebase: any;
 
   constructor( 
     private firestore: AngularFirestore,
@@ -46,4 +47,17 @@ export class CreateusersService {
   saveUser(usuario: object, uid: any):Promise<any>{
     return this.firestore.collection('usuarios').doc(uid).set(usuario);
   }
+
+  async emailVerification(): Promise<void> {
+    try {
+      return (await this.authWithAngularFirebase.currentUser)?.sendEmailVerification();
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  resetPassword(email: string): Promise<void>{
+    return this.authWithAngularFirebase.sendPasswordResetEmail(email);
+  }
+  
 }

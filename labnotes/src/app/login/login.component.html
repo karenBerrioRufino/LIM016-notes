@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div class="containerLogin">
+  <img src="../../assets/imagenes/fondo notes.PNG" class="fondo">
+  <div class="boxLogin">
+    <h2 class="signIn">INICIA SESIÓN</h2>
+    <div class="userEmail">
+      <span class="emailIcon"><i class="fa-solid fa-envelope"></i></span>
+      <input type="text" placeholder="Email" class="email"> 
+    </div>  
+    <div class="eye">
+      <span class='iconEye' (click)="seePassword()"><i [ngClass]=" changeIcon ? 'fas fa-eye' : 'fas fa-eye-slash'"></i></span>
+      <input type="password" placeholder="Password" class="password" [type]="showText ? 'text': 'password'">
+    </div>
+    <input type="submit" value="INGRESAR" class="ingresar" (click)="ingresar()">
+    <button type="submit" class="google" (click)="LogInWithGoogle()"><img src="../../assets/imagenes/google.png" alt="Google"></button>
+    <a routerLink="/registrarse" class="register">Quiero registrarme</a>
+    <a class="register" (click)="recoverPassword()">Recuperar contraseña</a>
+  </div>
+</div>
