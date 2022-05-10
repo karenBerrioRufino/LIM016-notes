@@ -5,6 +5,7 @@ import { CreateusersService } from '../services/createusers.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore'; */
 
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrarse',
@@ -24,7 +25,8 @@ export class RegistrarseComponent implements OnInit {
 
   constructor(
     // firestore : AngularFirestore
-    private createusersService: CreateusersService
+    private createusersService: CreateusersService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {}
@@ -46,6 +48,7 @@ export class RegistrarseComponent implements OnInit {
           this.createusersService.saveUser(this.usuario, res?.user?.uid).then(() => {
             console.log('Usuario registrado');
             // this.form.reset();
+            this.router.navigateByUrl('/notes');
           }, error => {
             console.log('Opps.. ocurrio un error', error);
           })

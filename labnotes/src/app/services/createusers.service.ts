@@ -48,12 +48,16 @@ export class CreateusersService {
     return this.firestore.collection('usuarios').doc(uid).set(usuario);
   }
 
-  async emailVerification(): Promise<void> {
+  /*async emailVerification(): Promise<void> {
     try {
-      return (await this.authWithAngularFirebase.currentUser)?.sendEmailVerification();
+      return (await this.authWithAngularFirebase.currentUser).sendEmailVerification();
     } catch (error) {
       console.log(error)
     }
+  }*/ 
+
+  async emailVerification(): Promise<void> {
+    return (await this.fireAuth.currentUser)?.sendEmailVerification(); 
   }
 
   resetPassword(email: string): Promise<void>{
