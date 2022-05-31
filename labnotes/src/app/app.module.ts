@@ -12,9 +12,11 @@ import { LoginComponent } from './login/login.component';
 import { NotesComponent } from './notes/notes.component';
 import { AddNotesComponent } from './add-notes/add-notes.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { RecoverPassComponent } from './recover-pass/recover-pass.component';
+
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     LoginComponent,
     NotesComponent,
     AddNotesComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
+    RecoverPassComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

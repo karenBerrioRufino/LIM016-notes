@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app'
 
 @Injectable({
@@ -12,7 +14,8 @@ export class CreateusersService {
 
   constructor( 
     private firestore: AngularFirestore,
-    private fireAuth: AngularFireAuth) {}
+    private fireAuth: AngularFireAuth,
+    private router: Router) {}
 
   async signInWithEmail(email: string, password: string){
     try{
@@ -45,23 +48,21 @@ export class CreateusersService {
   }
 
   saveUser(usuario: object, uid: any):Promise<any>{
-    return this.firestore.collection('usuarios').doc(uid).set(usuario);
+     return this.firestore.collection('usuarios').doc(uid).set(usuario);
   }
-
-  /*async emailVerification(): Promise<void> {
-    try {
-      return (await this.authWithAngularFirebase.currentUser).sendEmailVerification();
-    } catch (error) {
-      console.log(error)
-    }
-  }*/ 
 
   async emailVerification(): Promise<void> {
     return (await this.fireAuth.currentUser)?.sendEmailVerification(); 
   }
 
-  resetPassword(email: string): Promise<void>{
-    return this.authWithAngularFirebase.sendPasswordResetEmail(email);
+  resetPassword(email: string) {
+    
+    this.fireAuth.sendPasswordResetEmail(email)
+    .then(() => {
+      console.log('reset pass');
+      this.router.navigateByUrl('/notes');
+    })
+    .catch(error => console.log(error, 'error'))
   }
   
 }

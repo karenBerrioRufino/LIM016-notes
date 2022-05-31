@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddNotesComponent } from './add-notes/add-notes.component';
 import { LoginComponent } from './login/login.component';
 import { NotesComponent } from './notes/notes.component';
+import { RecoverPassComponent } from './recover-pass/recover-pass.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 
 const routes: Routes = [
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'registrarse', component: RegistrarseComponent
+  },
+  {
+    path: 'recoverPass', component: RecoverPassComponent
   }
 ];
 

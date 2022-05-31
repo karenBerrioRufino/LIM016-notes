@@ -2,21 +2,23 @@
   <img src="../../assets/imagenes/fondo notes.PNG" class="fondo">
   <div class="boxRegister">
     <h1 class="signUp">REGÍSTRATE</h1>
-    <div class="user">
-      <span class="iconUser"><i class="fa-solid fa-user"></i></span>
-      <input type="text" placeholder="Username" class="username" [(ngModel)] = "usuario.username">
-    </div>
-    <div class="userEmail">
-      <span class="emailIcon"><i class="fa-solid fa-envelope"></i></span>
-      <input type="text" placeholder="Email" class="email" [(ngModel)] = "usuario.email"> 
-    </div>  
-    <div class="eye">
-      <span class='iconEye' (click)="seePassword()"><i [ngClass]=" changeIcon ? 'fas fa-eye' : 'fas fa-eye-slash'"></i></span>
-      <input type="password" placeholder="Password" class="password" [type]="showText ? 'text': 'password'" 
-      [(ngModel)] = "usuario.password">
-    </div>
+    <form [formGroup]="usuario">
+      <div class="user">
+        <span class="iconUser"><i class="fa-solid fa-user"></i></span>
+        <input type="text" placeholder="Username" class="username" formControlName="username">
+      </div>
+      <div class="userEmail">
+        <span class="emailIcon"><i class="fa-solid fa-envelope"></i></span>
+        <input type="text" placeholder="Email" class="email" formControlName="email"> 
+      </div>  
+      <div class="eye">
+        <span class='iconEye' (click)="seePassword()"><i [ngClass]=" changeIcon ? 'fas fa-eye' : 'fas fa-eye-slash'"></i></span>
+        <input type="password" placeholder="Password" class="password" [type]="showText ? 'text': 'password'" 
+        formControlName="password">
+      </div>
+    </form>
     <input type="submit" value="REGISTRARME" class="registrarme" (click)="registerEmail()">
-    <a routerLink="/" class="signIn">Iniciar sesión</a>
+      <a routerLink="/" class="signIn">Iniciar sesión</a>
   </div>
 </div>
 <label color ></label>

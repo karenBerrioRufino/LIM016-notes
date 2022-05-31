@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { CreateusersService } from '../services/createusers.service';
+
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,14 @@ export class LoginComponent implements OnInit {
 
   showText: boolean = false;
   changeIcon: boolean = false;
-  constructor( private createUser: CreateusersService, private router:Router ) { }
+  usuario: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+  })
+  constructor( 
+    private createUser: CreateusersService, 
+    private router:Router,
+    ) {}
 
   ngOnInit(): void {}
   
@@ -21,7 +30,11 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar(){
-    this.router.navigateByUrl('/notes');
+    const {email, password} = this.usuario.value;
+    this.createUser.signInWithEmail(email, password)
+      console.log('ingresar')
+      this.router.navigateByUrl('/notes');
+
   }
 
   async LogInWithGoogle(){
@@ -34,7 +47,7 @@ export class LoginComponent implements OnInit {
     }
 
     recoverPassword(){
-      
+      this.router.navigateByUrl('/recoverPass');
     }
 
 }

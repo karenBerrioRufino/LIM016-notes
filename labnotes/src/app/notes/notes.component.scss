@@ -1,0 +1,24 @@
+$color-celeste: #B4C6DE;
+$color-naranja: #E77C72;
+$color-verdelimon: #E4F994;
+$color-rosado: #F8879B;
+$color-negro: black;
+$color-rojo: red;
+
+.containerNotes{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+.addNote{
+  background: #FFFFFF;
+  border: 2px solid $color-negro;
+  border-radius: 15px;
+  width: 700px;
+  height: 60px;
+  margin: 20px 0 10px 0;
+  cursor: pointer;
+  color: gray;
+  font-size: 20px;
+}
